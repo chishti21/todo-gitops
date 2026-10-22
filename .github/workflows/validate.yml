@@ -1,0 +1,29 @@
+name: Validate chart
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  helm-validate:
+    name: helm-validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: azure/setup-helm@v4
+
+      - name: Lint (staging)
+        run: helm lint charts/todo-app -f envs/values-staging.yaml
+
+      - name: Lint (prod)
+        run: helm lint charts/todo-app -f envs/values-prod.yaml
+
+      - name: Render (staging)
+        run: helm template todo charts/todo-app -f envs/values-staging.yaml > /dev/null
+
+      - name: Render (prod)
+        run: helm template todo charts/todo-app -f envs/values-prod.yaml > /dev/null
