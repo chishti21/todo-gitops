@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: todo
+  namespace: argocd
+spec:
+  description: To-Do app (staging and prod)
+  sourceRepos:
+    - https://github.com/chishti21/todo-gitops.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: staging
+    - server: https://kubernetes.default.svc
+      namespace: prod
+  # Cluster-wide resources ki ijazat nahi, sirf namespace ke andar
+  clusterResourceWhitelist: []
