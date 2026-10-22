@@ -1,0 +1,41 @@
+# Private GHCR packages ke liye; public ho to khali rakhein
+imagePullSecrets: []
+
+backend:
+  image:
+    repository: ghcr.io/chishti21/todo-backend
+    tag: ""            # har env ki values file mein set hota hai
+  replicas: 1
+  port: 8000
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      memory: 256Mi
+
+frontend:
+  image:
+    repository: ghcr.io/chishti21/todo-frontend
+    tag: ""
+  replicas: 1
+  port: 8501
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      memory: 256Mi
+
+postgres:
+  image: postgres:16-alpine
+  db: todo_db
+  user: todo_user
+  existingSecret: todo-db-secret   # kubectl se banega, Git mein nahi (key: password)
+  storage: 1Gi
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      memory: 256Mi
