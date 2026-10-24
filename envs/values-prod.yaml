@@ -1,10 +1,10 @@
-imagePullSecrets:
-  - name: ghcr-pull
+# imagePullSecrets:
+#   - name: ghcr-pull
 
 backend:
   image:
-    tag: "126d531f5b3aa3133b2d1c3677fa78211eaf79e7"
+    tag: "36c1a51af12e9a806d83cca622b5cd8ac4bf957b"
 
 frontend:
   image:
-    tag: "126d531f5b3aa3133b2d1c3677fa78211eaf79e7"
+    tag: "36c1a51af12e9a806d83cca622b5cd8ac4bf957b"
