@@ -1,14 +1,11 @@
 imagePullSecrets:
-  - name: ghcr-pull   # package public ho to is poore block ko hata dein
-
+  - name: ghcr-pull # package public ho to is poore block ko hata dein
 backend:
   image:
-    tag: "126d531f5b3aa3133b2d1c3677fa78211eaf79e7"
-
+    tag: "36c1a51af12e9a806d83cca622b5cd8ac4bf957b"
 frontend:
   image:
-    tag: "126d531f5b3aa3133b2d1c3677fa78211eaf79e7"
-
+    tag: "36c1a51af12e9a806d83cca622b5cd8ac4bf957b"
 route:
   enabled: true
   host: todo-staging.161.33.11.57.nip.io
