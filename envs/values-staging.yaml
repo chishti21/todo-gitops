@@ -6,6 +6,3 @@ backend:
 frontend:
   image:
     tag: "36c1a51af12e9a806d83cca622b5cd8ac4bf957b"
-route:
-  enabled: true
-  host: todo-staging.161.33.11.57.nip.io
